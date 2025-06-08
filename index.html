@@ -1,120 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anushka Jharimunya | Portfolio</title>
-  <link rel="stylesheet" href="portfolio.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anushka Jharimunya | Portfolio</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    background: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  a {
+    color: #64ffda;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #1de9b6;
+  }
+
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1f1f1fcc;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+    z-index: 1000;
+  }
+  .navbar ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .navbar a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  .navbar a:hover,
+  .navbar a.active {
+    background-color: #64ffda;
+    color: #121212;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #64ffda;
+    margin-top: 4.5rem; /* nav height */
+  }
+  .typewriter {
+    font-size: 3rem;
+    font-weight: 700;
+    border-right: 3px solid #64ffda;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(22), blink 0.75s step-end infinite;
+    max-width: 22ch;
+    margin-bottom: 1rem;
+  }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 22ch }
+  }
+  @keyframes blink {
+    50% { border-color: transparent }
+  }
+
+  /* CTA Button */
+  .cta-btn {
+    margin-top: 1.5rem;
+    background: #64ffda;
+    color: #121212;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px #64ffdaaa;
+    transition: background 0.3s ease;
+  }
+  .cta-btn:hover {
+    background: #1de9b6;
+    box-shadow: 0 6px 15px #1de9b6cc;
+  }
+
+  /* Sections base */
+  section {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #64ffda;
+    text-align: center;
+    letter-spacing: 1.2px;
+  }
+
+  /* About Section */
+  #about p {
+    font-size: 1.15rem;
+    color: #ccc;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Skills Section */
+  #skills {
+    margin-top: 1rem;
+  }
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    justify-content: center;
+  }
+  .skill-box {
+    background: #222;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #64ffda;
+    box-shadow: 0 0 6px #64ffda44;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+  }
+  .skill-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px #1de9b6cc;
+  }
+
+  /* Projects Section */
+  .project-category {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #1de9b6;
+    padding-bottom: 5px;
+    font-weight: 700;
+    color: #1de9b6;
+    font-size: 1.3rem;
+  }
+  .project-card {
+    background: #1f1f1f;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px #000;
+    transition: box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .project-card:hover {
+    box-shadow: 0 6px 15px #1de9b6cc;
+  }
+  .project-card h3 {
+    margin-bottom: 0.5rem;
+    color: #64ffda;
+  }
+  .project-card p {
+    color: #ddd;
+    font-size: 1rem;
+  }
+  .project-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #1de9b6;
+    font-weight: 600;
+  }
+  .project-card a:hover {
+    text-decoration: underline;
+  }
+
+  /* Cards Section */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: #1f1f1f;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #000;
+    max-width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px #1de9b6cc;
+  }
+  .card img {
+    width: 50px;
+    margin-bottom: 1rem;
+  }
+  .card h2 {
+    margin-bottom: 0.7rem;
+    color: #1de9b6;
+  }
+  .card p {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Experience Section */
+  #experience ul {
+    max-width: 700px;
+    margin: 0 auto;
+    list-style: none;
+    padding-left: 1rem;
+    color: #ccc;
+  }
+  #experience li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  /* Contact Section */
+  .contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .profile-image {
+    width: 130px;
+    border-radius: 50%;
+    border: 3px solid #64ffda;
+    box-shadow: 0 0 10px #64ffda99;
+    object-fit: cover;
+  }
+  .contact-container div p {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  .contact-container mark {
+    background: transparent;
+    color: #1de9b6;
+    font-weight: 700;
+  }
+
+  /* Scroll to Top Button */
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #64ffda;
+    border: none;
+    padding: 0.8rem 1.1rem;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 0 15px #64ffdacc;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 999;
+  }
+  #scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .skills-grid {
+      justify-content: center;
+    }
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact-container {
+      flex-direction: column;
+    }
+  }
+</style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section fade-in">
-    <h1 class="typewriter">Hi, I'm Anushka</h1>
-    <p>ECE Undergraduate | Research Intern @ IIT Guwahati | Passionate about Core Electronics & Communication</p>
-    <a href="#projects" class="cta-btn">Explore My Work</a>
-  </section>
+<!-- Navbar -->
+<nav class="navbar">
+  <ul>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- About Section -->
-  <section id="about" class="profile-section fade-in">
-    <h2>About Me</h2>
-    <p>
-      I'm a dedicated Electronics and Communication Engineering student at NSUT with a strong interest in core ECE fields,DSA nad problem solving. Currently, I'm engaged in a research internship at IIT Guwahati focused on 5G wireless networks, intelligent reflecting surfaces, and integrated sensing and communication. I'm deeply committed to exploring the intersection of theory and hands-on hardware implementation.
-    </p>
-  </section>
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+  <h1 class="typewriter">Hello, I'm Anushka Jharimunya</h1>
+  <p>Electronics & Communication Engineering Undergraduate</p>
+  <a href="#projects" class="cta-btn">View My Work</a>
+</section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section fade-in">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-box">C++</div>
-      <div class="skill-box">Python</div>
-      <div class="skill-box">MATLAB</div>
-      <div class="skill-box">HTML</div>
-      <div class="skill-box">CSS</div>
-      <div class="skill-box">JavaScript</div>
-      <div class="skill-box">React</div>
-      <div class="skill-box">Git & GitHub</div>
-      <div class="skill-box">Linux</div>
-      <div class="skill-box">LaTeX</div>
-      <div class="skill-box">HFSS / ANSYS</div>
-    </div>
-  </section>
+<!-- About Me -->
+<section id="about" class="fade-in">
+  <h2>About Me</h2>
+  <p>
+    I am a passionate Electronics and Communication Engineering student, deeply interested in core ECE domains such as embedded systems, communication hardware, digital design, and signal processing. 
+    I enjoy hands-on projects, internships, and research related to hardware design and wireless communication.
+  </p>
+</section>
 
-  <!-- Cards Section -->
-  <section class="card-container fade-in">
-    <div class="card">
-      <img src="linkedln.png" alt="LinkedIn" />
-      <h2>LinkedIn</h2>
-      <p>Explore my professional profile and journey in core ECE.</p>
-      <a href="https://www.linkedin.com/in/anushka-jharimunya-a8aa5b235/" target="_blank">Visit LinkedIn</a>
-    </div>
-    <div class="card">
-      <img src="github.webp" alt="GitHub" />
-      <h2>GitHub</h2>
-      <p>Browse my hardware-related projects and code repositories.</p>
-      <a href="#" target="_blank">Visit GitHub</a>
-    </div>
-  </section>
+<!-- Skills -->
+<section id="skills" class="fade-in">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-box">C/C++</div>
+    <div class="skill-box">Python</div>
+    <div class="skill-box">Embedded Systems</div>
+    <div class="skill-box">Signal Processing</div>
+    <div class="skill-box">5G Networks</div>
+    <div class="skill-box">KiCad (PCB Design)</div>
+    <div class="skill-box">MATLAB</div>
+    <div class="skill-box">HTML/CSS/JS</div>
+    <div class="skill-box">ESP32 & Microcontrollers</div>
+  </div>
+</section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section fade-in">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Lost & Found Registry</h3>
-      <p>Designed a full-stack web application to manage lost and found items on campus using HTML, CSS, JS, and MongoDB. Integrated form validation and database storage for smooth item tracking.</p>
-      <a href="https://lost-and-found-alpha.vercel.app/" target="_blank">View Project</a>
-    </div>
-    <div class="project-card">
-      <h3>Cafe Website</h3>
-      <p>Created a responsive UI for a cafe using HTML, CSS, and JavaScript. Featured interactive menu, contact form, and adaptive mobile layout.</p>
-    </div>
-    <div class="project-card">
-      <h3>Portfolio Website</h3>
-      <p>This portfolio website is a responsive, animated showcase of my work, experience, and contact information, styled with CSS and JavaScript interactivity.</p>
-    </div>
-    <div class="project-card">
-      <h3>IoT Laser Tripwire System</h3>
-      <p>Developed a laser-based tripwire system using ESP32 and RTC to detect unauthorized intrusions and log timestamps for event monitoring.</p>
-    </div>
-  </section>
+<!-- Projects -->
+<section id="projects" class="fade-in">
+  <h2>Projects</h2>
 
-  <!-- Experience Section -->
-  <section id="experience" class="section fade-in">
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>IIT Guwahati</strong> – Research Intern (May–July 2025)<br />
-        Working on 5G private networks and integrated sensing and communication (ISAC) technologies using MATLAB simulations and intelligent reflecting surfaces (IRS).</li>
-      <li><strong>Devcomm, NSUT</strong> – Member since Sep 2023</li>
-      <li><strong>Canvas, NSUT</strong> – Fine Arts Society Member since Nov 2023</li>
-      <li>Event Coordinator – Moksha’23 and Resonanz’24 (Sponsorship and Fine Arts teams)</li>
-    </ul>
-  </section>
+  <div class="project-category">Web Development</div>
+  <div class="project-card">
+    <h3>Lost & Found Registry</h3>
+    <p>Designed a full-stack web application to manage lost and found items on campus using HTML, CSS, JS, and MongoDB. Integrated form validation and database storage for smooth item tracking.</p>
+    <a href="https://lost-and-found-alpha.vercel.app/" target="_blank" rel="noopener">View Project</a>
+  </div>
+  <div class="project-card">
+    <h3>Cafe Website</h3>
+    <p>Created a responsive UI for a cafe using HTML, CSS, and JavaScript. Featured interactive menu, contact form, and adaptive mobile layout.</p>
+  </div>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact-container fade-in">
-    <img src="passport1.jpg" alt="Profile" class="profile-image" />
+  <div class="project-category">Portfolio & UI</div>
+  <div class="project-card">
+    <h3>Portfolio Website</h3>
+    <p>This portfolio website is a responsive, animated showcase of my work, experience, and contact information, styled with CSS and JavaScript interactivity.</p>
+  </div>
+
+  <div class="project-category">Hardware & IoT</div>
+  <div class="project-card">
+    <h3>IoT Laser Tripwire System</h3>
+    <p>Developed a laser-based tripwire system using ESP32 and RTC to detect unauthorized intrusions and log timestamps for event monitoring.</p>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience" class="fade-in">
+  <h2>Experience</h2>
+  <ul>
+    <li><strong>Research Intern</strong> - IIT Guwahati (2025): Worked on communication hardware and 5G technology projects, reading research papers and conducting MATLAB simulations.</li>
+    <li><strong>Electronics Design Workshop</strong> - Academic Project: Developed practical projects involving embedded systems and circuit design.</li>
+    <li><strong>5G Use Case Lab</strong> - Hands-on project involving sensors, 5G private networks, and IoT integration for health monitoring applications.</li>
+  </ul>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="fade-in">
+  <h2>Contact Me</h2>
+  <div class="contact-container">
+    <img src="https://avatars.githubusercontent.com/u/77838193?v=4" alt="Anushka Jharimunya" class="profile-image" />
     <div>
-      <p><mark>Email:</mark> anushkajharimunya@gmail.com</p>
-      <p><mark>Phone:</mark> +91 7428566692</p>
+      <p>Email: <mark>anushkajharimunya@example.com</mark></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/anushka-jharimunya-a8aa5b235/" target="_blank" rel="noopener">linkedin.com/in/anushka-jharimunya</a></p>
+      <p>GitHub: <a href="https://github.com/anushka-jharimunya" target="_blank" rel="noopener">github.com/anushka-jharimunya</a></p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Scroll to Top Button -->
-  <button id="scrollTopBtn">⬆️</button>
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 
-  <script src="portfolio.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Scroll fade-in for sections
+    const faders = document.querySelectorAll("section.fade-in");
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Scroll to top button
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
+
 
 
