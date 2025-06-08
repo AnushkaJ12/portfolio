@@ -1,16 +1,36 @@
 body {
-    background-color: #000;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
     color: #f0f0f0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
 }
 
 h1, h2 {
-    color: #00fff7;
+    color: #00ffe7;
+    text-shadow: 0 0 10px #00ffe7;
     text-align: center;
     margin-top: 1.5rem;
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #00ffe7;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    width: fit-content;
+    margin: 2rem auto 0;
+    font-size: 2rem;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
 }
 
 .header-image {
@@ -20,18 +40,28 @@ h1, h2 {
     object-fit: cover;
 }
 
-.profile-section {
-    max-width: 900px;
-    margin: 2rem auto;
-    background-color: #111;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
 }
 
-.profile-section p {
-    font-size: 1.1rem;
-    text-align: justify;
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profile-section,
+.section,
+.card,
+.contact-container {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 900px;
 }
 
 .profile-keywords {
@@ -45,17 +75,11 @@ h1, h2 {
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
-    margin: 2rem auto;
-    max-width: 1000px;
 }
 
 .card {
-    background-color: #111;
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-align: center;
     width: 300px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    text-align: center;
     transition: transform 0.3s ease;
 }
 
@@ -64,39 +88,55 @@ h1, h2 {
 }
 
 .card img {
-    max-width: 100px;
-    margin-bottom: 1rem;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
 }
 
-.card a {
-    color: #ffaa00;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skill-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.7rem 1rem;
+    text-align: center;
+    border-radius: 8px;
+    color: #39ff14;
+    font-weight: bold;
+    box-shadow: 0 0 8px #39ff14;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-box:hover {
+    transform: scale(1.05);
+    background-color: #39ff14;
+    color: #000;
+}
+
+ul {
+    padding-left: 1.5rem;
+    line-height: 1.8;
+}
+
+a {
+    color: #ffcc00;
     text-decoration: none;
     font-weight: bold;
 }
 
-.section {
-    max-width: 900px;
-    margin: 2rem auto;
-    background-color: #111;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-ul {
-    list-style-type: square;
-    padding-left: 1.5rem;
+a:hover {
+    text-decoration: underline;
+    color: #fff700;
 }
 
 .contact-container {
-    max-width: 900px;
-    margin: 2rem auto;
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    background-color: #111;
-    padding: 1.5rem;
-    border-radius: 12px;
 }
 
 .profile-image {
@@ -104,16 +144,28 @@ ul {
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #00fff7;
-}
-
-.contact-info {
-    font-size: 1rem;
-    color: #f0f0f0;
+    border: 2px solid #00ffe7;
 }
 
 mark {
-    background-color: transparent;
+    background: none;
     color: #ffaa00;
     font-weight: bold;
 }
+
+/* Scroll-to-top button */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00ffe7;
+    color: #000;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ffe7;
+    display: none;
+}
+
