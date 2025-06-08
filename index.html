@@ -1,13 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <link rel="Stylesheet" href="portfolio.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    
+    <title>Anushka's Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 
@@ -18,12 +15,17 @@
     <img src="e.jpeg" alt="Header Image" class="header-image">
 
     <!-- Profile Section -->
-    <h2>Profile</h2>
-    <p>
-        Sophomore at NSUT's ECE Branch with a strong passion for coding and a proven track record in web development.
-        Experienced in front-end development, proficient in building dynamic and responsive user interfaces. Enthusiastic
-        about AI and ML, demonstrating a continuous drive for self-improvement and innovation.
-    </p>
+    <div class="profile-section">
+        <h2>About Me</h2>
+        <p>
+            I'm a second-year Electronics and Communication Engineering student at NSUT, with a deep passion for tech and design.
+            Skilled in C++, Python, HTML, CSS, JavaScript, and React, I love building responsive, real-world web solutions. 
+            Currently exploring AI/ML while designing secure IoT systems and engaging in impactful tech communities.
+        </p>
+        <p class="profile-keywords">
+            Tools & Tech: Git, VS Code, Linux, HFSS, ANSYS | Interests: Web Dev, IoT, AI/ML, Design Thinking
+        </p>
+    </div>
 
     <!-- Cards Section -->
     <div class="card-container">
@@ -45,34 +47,42 @@
     </div>
 
     <!-- Projects Section -->
-    <h2>Projects</h2>
-    <ul>
-        <li>Built a university-level Lost and Found Registry (HTML, CSS, JavaScript, MongoDB)
-            <br><a href="https://lost-and-found-alpha.vercel.app/" target="_blank">View Project</a>
-        </li>
-        <li>Curated site for a cafe (HTML, CSS, JavaScript)</li>
-        <li>Portfolio Website (HTML, CSS, JavaScript)</li>
-    </ul>
+    <div class="section">
+        <h2>Projects</h2>
+        <ul>
+            <li>
+                Built a university-level Lost and Found Registry (HTML, CSS, JavaScript, MongoDB) <br>
+                <a href="https://lost-and-found-alpha.vercel.app/" target="_blank">View Project</a>
+            </li>
+            <li>Curated site for a cafe (HTML, CSS, JavaScript)</li>
+            <li>Portfolio Website (HTML, CSS, JavaScript)</li>
+        </ul>
+    </div>
 
     <!-- Certifications Section -->
-    <h2>Certifications and Workshops</h2>
-    <ul>
-        <li>Introduction to Front-End Development - Meta (Coursera)</li>
-        <li>Programming with JavaScript - Meta (Coursera)</li>
-        <li>Participated in Delhi’s Biggest 30hrs Hackathon CODE4CAUSE 2.0: Top 4000 applicants among 1200 teams</li>
-    </ul>
+    <div class="section">
+        <h2>Certifications and Workshops</h2>
+        <ul>
+            <li>Introduction to Front-End Development - Meta (Coursera)</li>
+            <li>Programming with JavaScript - Meta (Coursera)</li>
+            <li>CODE4CAUSE 2.0: Top 4000 applicants among 1200 teams</li>
+            <li>AlgoUniversity Tech Fellowship 2024: Top 20% candidates</li>
+            <li>NPTEL: Design Thinking | NPTEL: Economics in Healthcare</li>
+        </ul>
+    </div>
 
     <!-- Experience Section -->
-    <h2>Experience</h2>
-    <ul>
-        <li>Devcomm, NSUT: The premier tech society at NSUT (Member since September 2023)</li>
-        <li>Canvas, NSUT: The fine arts society of NSUT (Member since November 2023)</li>
-        <li>Fine arts, Moksha’2023: The annual cultural fest of NSUT</li>
-        <li>Sponsorship Team, Resonanz’24: The intercollege fest of NSUT</li>
-    </ul>
+    <div class="section">
+        <h2>Experience</h2>
+        <ul>
+            <li>Devcomm, NSUT: The premier tech society at NSUT (Sep 2023 - Present)</li>
+            <li>Canvas, NSUT: The fine arts society of NSUT (Nov 2023 - Present)</li>
+            <li>Fine Arts Team, Moksha 2023: Annual cultural fest of NSUT</li>
+            <li>Sponsorship Team, Resonanz 2024: NSUT’s inter-college fest</li>
+        </ul>
+    </div>
 
     <!-- Contact Section -->
-    <h2>Contact</h2>
     <div class="contact-container">
         <img src="passport1.jpg" alt="Profile Picture" class="profile-image">
         <div>
@@ -81,13 +91,7 @@
         </div>
     </div>
 
-    
-    <script src="portfolio.js"></script> <!-- Link to external JS file -->
-    
+    <script src="portfolio.js"></script>
+
 </body>
 </html>
-
-            
-
-
-            
