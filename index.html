@@ -1,94 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anushka Jharimunya | Portfolio</title>
-    <link rel="stylesheet" href="portfolio.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anushka Jharimunya | Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css" />
 </head>
 <body>
-    <!-- Header -->
-    <h1 class="typewriter">Welcome to My Portfolio</h1>
-    <img src="e.jpeg" alt="Header Image" class="header-image" />
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Profile Section -->
-    <div class="profile-section fade-in">
-        <h2>About Me</h2>
-        <p>
-            I'm a second-year ECE student at NSUT, passionate about tech innovation. Currently interning at IIT Guwahati in 5G and ISAC. Skilled in full-stack dev, embedded systems & AI/ML.
-        </p>
-        <p class="profile-keywords">
-            Tools: C++, Python, HTML, JS, React, MATLAB, HFSS, Git, Linux
-        </p>
+  <!-- Hero Section -->
+  <section class="hero-section fade-in">
+    <h1 class="typewriter">Hi, I'm Anushka</h1>
+    <p>ECE Undergraduate | Research Intern @ IIT Guwahati | Passionate about Core Electronics & Communication</p>
+    <a href="#projects" class="cta-btn">Explore My Work</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="profile-section fade-in">
+    <h2>About Me</h2>
+    <p>
+      I'm a dedicated Electronics and Communication Engineering student at NSUT with a strong interest in core ECE fields,DSA nad problem solving. Currently, I'm engaged in a research internship at IIT Guwahati focused on 5G wireless networks, intelligent reflecting surfaces, and integrated sensing and communication. I'm deeply committed to exploring the intersection of theory and hands-on hardware implementation.
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section fade-in">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-box">C++</div>
+      <div class="skill-box">Python</div>
+      <div class="skill-box">MATLAB</div>
+      <div class="skill-box">HTML</div>
+      <div class="skill-box">CSS</div>
+      <div class="skill-box">JavaScript</div>
+      <div class="skill-box">React</div>
+      <div class="skill-box">Git & GitHub</div>
+      <div class="skill-box">Linux</div>
+      <div class="skill-box">LaTeX</div>
+      <div class="skill-box">HFSS / ANSYS</div>
     </div>
+  </section>
 
-    <!-- Skills -->
-    <div class="section fade-in">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-box">C++</div>
-            <div class="skill-box">Python</div>
-            <div class="skill-box">HTML</div>
-            <div class="skill-box">CSS</div>
-            <div class="skill-box">JavaScript</div>
-            <div class="skill-box">React</div>
-            <div class="skill-box">MATLAB</div>
-            <div class="skill-box">Git & GitHub</div>
-            <div class="skill-box">Linux</div>
-            <div class="skill-box">LaTeX</div>
-        </div>
+  <!-- Cards Section -->
+  <section class="card-container fade-in">
+    <div class="card">
+      <img src="linkedln.png" alt="LinkedIn" />
+      <h2>LinkedIn</h2>
+      <p>Explore my professional profile and journey in core ECE.</p>
+      <a href="https://www.linkedin.com/in/anushka-jharimunya-a8aa5b235/" target="_blank">Visit LinkedIn</a>
     </div>
-
-    <!-- Cards Section -->
-    <div class="card-container fade-in">
-        <div class="card">
-            <img src="linkedln.png" alt="LinkedIn" />
-            <h2>LinkedIn</h2>
-            <p>Explore my professional profile.</p>
-            <a href="#" target="_blank">Visit LinkedIn</a>
-        </div>
-        <div class="card">
-            <img src="github.webp" alt="GitHub" />
-            <h2>GitHub</h2>
-            <p>Explore my projects and code.</p>
-            <a href="#" target="_blank">Visit GitHub</a>
-        </div>
+    <div class="card">
+      <img src="github.webp" alt="GitHub" />
+      <h2>GitHub</h2>
+      <p>Browse my hardware-related projects and code repositories.</p>
+      <a href="#" target="_blank">Visit GitHub</a>
     </div>
+  </section>
 
-    <!-- Projects -->
-    <div class="section fade-in">
-        <h2>Projects</h2>
-        <ul>
-            <li>Lost & Found Registry - <a href="https://lost-and-found-alpha.vercel.app/" target="_blank">Live</a></li>
-            <li>Curated Cafe Website</li>
-            <li>Portfolio Website (this one!)</li>
-            <li>IoT Laser Tripwire Security System</li>
-        </ul>
+  <!-- Projects Section -->
+  <section id="projects" class="section fade-in">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Lost & Found Registry</h3>
+      <p>Designed a full-stack web application to manage lost and found items on campus using HTML, CSS, JS, and MongoDB. Integrated form validation and database storage for smooth item tracking.</p>
+      <a href="https://lost-and-found-alpha.vercel.app/" target="_blank">View Project</a>
     </div>
-
-    <!-- Experience -->
-    <div class="section fade-in">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>IIT Guwahati</strong> - Research Intern in 5G & ISAC (May 2025 - Present)</li>
-            <li>Devcomm, NSUT (Sep 2023 - Present)</li>
-            <li>Canvas, NSUT (Fine Arts) & Event Teams</li>
-        </ul>
+    <div class="project-card">
+      <h3>Cafe Website</h3>
+      <p>Created a responsive UI for a cafe using HTML, CSS, and JavaScript. Featured interactive menu, contact form, and adaptive mobile layout.</p>
     </div>
-
-    <!-- Contact -->
-    <div class="contact-container fade-in">
-        <img src="passport1.jpg" alt="Profile" class="profile-image" />
-        <div>
-            <p><mark>Email:</mark> anushkajharimunya@gmail.com</p>
-            <p><mark>Phone:</mark> +91 7428566692</p>
-        </div>
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>This portfolio website is a responsive, animated showcase of my work, experience, and contact information, styled with CSS and JavaScript interactivity.</p>
     </div>
+    <div class="project-card">
+      <h3>IoT Laser Tripwire System</h3>
+      <p>Developed a laser-based tripwire system using ESP32 and RTC to detect unauthorized intrusions and log timestamps for event monitoring.</p>
+    </div>
+  </section>
 
-    <!-- Scroll to top -->
-    <button id="scrollTopBtn">⬆️</button>
+  <!-- Experience Section -->
+  <section id="experience" class="section fade-in">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>IIT Guwahati</strong> – Research Intern (May–July 2025)<br />
+        Working on 5G private networks and integrated sensing and communication (ISAC) technologies using MATLAB simulations and intelligent reflecting surfaces (IRS).</li>
+      <li><strong>Devcomm, NSUT</strong> – Member since Sep 2023</li>
+      <li><strong>Canvas, NSUT</strong> – Fine Arts Society Member since Nov 2023</li>
+      <li>Event Coordinator – Moksha’23 and Resonanz’24 (Sponsorship and Fine Arts teams)</li>
+    </ul>
+  </section>
 
-    <script src="portfolio.js"></script>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-container fade-in">
+    <img src="passport1.jpg" alt="Profile" class="profile-image" />
+    <div>
+      <p><mark>Email:</mark> anushkajharimunya@gmail.com</p>
+      <p><mark>Phone:</mark> +91 7428566692</p>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn">⬆️</button>
+
+  <script src="portfolio.js"></script>
 </body>
 </html>
+
 
