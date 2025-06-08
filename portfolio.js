@@ -1,41 +1,58 @@
-// Animate fade-in sections on scroll
-const fadeElements = document.querySelectorAll('.fade-in');
+document.addEventListener("DOMContentLoaded", () => {
+  // Scroll fade-in for sections
+  const faders = document.querySelectorAll("section, .fade-in");
 
-function checkFade() {
-  fadeElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+
+  // Scroll to top button
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 500) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
     }
   });
-}
 
-window.addEventListener('scroll', checkFade);
-window.addEventListener('load', () => {
-  checkFade();
-
-  // Animate skill boxes with a pop effect
-  document.querySelectorAll('.skill-box').forEach((skill, index) => {
-    setTimeout(() => {
-      skill.style.transform = 'translateY(0)';
-      skill.style.opacity = '1';
-    }, index * 150);
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
-});
 
-// Scroll to top button logic
-const scrollTopBtn = document.getElementById('scrollTopBtn');
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".navbar a");
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 350) {
-    scrollTopBtn.classList.add('show');
-  } else {
-    scrollTopBtn.classList.remove('show');
-  }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 70;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
 });
 
 
