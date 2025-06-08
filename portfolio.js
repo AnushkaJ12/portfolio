@@ -1,29 +1,41 @@
-// Fade-in effect on scroll
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('appear');
-        }
-    });
-}, { threshold: 0.1 });
+// Animate fade-in sections on scroll
+const fadeElements = document.querySelectorAll('.fade-in');
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+function checkFade() {
+  fadeElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+}
 
-// Scroll to top
-const scrollBtn = document.getElementById("scrollTopBtn");
-window.onscroll = () => {
-    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-};
-scrollBtn.onclick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+window.addEventListener('scroll', checkFade);
+window.addEventListener('load', () => {
+  checkFade();
 
-// Optional: hover sound
-// const hoverSound = new Audio('hover.mp3');
-// document.querySelectorAll('a').forEach(link => {
-//     link.addEventListener('mouseenter', () => {
-//         hoverSound.currentTime = 0;
-//         hoverSound.play();
-//     });
-// });
+  // Animate skill boxes with a pop effect
+  document.querySelectorAll('.skill-box').forEach((skill, index) => {
+    setTimeout(() => {
+      skill.style.transform = 'translateY(0)';
+      skill.style.opacity = '1';
+    }, index * 150);
+  });
+});
+
+// Scroll to top button logic
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 350) {
+    scrollTopBtn.classList.add('show');
+  } else {
+    scrollTopBtn.classList.remove('show');
+  }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 
