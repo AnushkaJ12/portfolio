@@ -324,3 +324,46 @@ h2 {
   }
 }
 
+
+/* --- Portfolio update additions --- */
+.skill-group {
+  margin-bottom: 1.2rem;
+}
+.skill-group h3 {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #aaa;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.project-category {
+  text-align: left;
+}
+
+.project-card .tech {
+  color: #1de9b6;
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+.project-card a {
+  display: inline-block;
+  margin-top: 0.6rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #121212;
+  background: #64ffda;
+  padding: 2px 8px;
+  border-radius: 10px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.sub-heading {
+  margin-top: 2.5rem;
+}
