@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anushka Jharimunya – ECE undergraduate at NSUT working on VLSI, RTL design and hardware for AI." />
   <title>Anushka Jharimunya | Portfolio</title>
   <link rel="stylesheet" href="portfolio.css" />
 </head>
@@ -21,7 +22,7 @@
   <!-- Hero Section -->
   <section class="hero-section fade-in">
     <h1 class="typewriter">Hi, I'm Anushka</h1>
-    <p>ECE Undergraduate | Research Intern @ IIT Guwahati | Passionate about Core Electronics & Communication</p>
+    <p>ECE Undergraduate @ NSUT | Research Intern @ IIIT Delhi | VLSI &amp; Hardware for AI</p>
     <a href="#projects" class="cta-btn">Explore My Work</a>
   </section>
 
@@ -29,25 +30,62 @@
   <section id="about" class="profile-section fade-in">
     <h2>About Me</h2>
     <p>
-      I'm a dedicated Electronics and Communication Engineering student at NSUT with a strong interest in core ECE fields,DSA and problem solving. Currently, I'm engaged in a research internship at IIT Guwahati focused on 5G wireless networks, intelligent reflecting surfaces, and integrated sensing and communication. I'm deeply committed to exploring the intersection of theory and hands-on hardware implementation.
+      I'm a third-year Electronics and Communication Engineering student at NSUT, Delhi (graduating 2027), focused on VLSI, semiconductors and hardware for AI. I design digital systems in Verilog, simulate analog and mixed-signal circuits, and study how LLM inference maps onto accelerators. This summer I worked on PIM-based inference accelerators and expert scheduling for MoE models at IIIT Delhi, and I co-authored a poster paper accepted at VLSID 2027.
     </p>
   </section>
 
   <!-- Skills Section -->
   <section id="skills" class="section fade-in">
     <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-box">C++</div>
-      <div class="skill-box">Python</div>
-      <div class="skill-box">MATLAB</div>
-      <div class="skill-box">HTML</div>
-      <div class="skill-box">CSS</div>
-      <div class="skill-box">JavaScript</div>
-      <div class="skill-box">React</div>
-      <div class="skill-box">Git & GitHub</div>
-      <div class="skill-box">Linux</div>
-      <div class="skill-box">LaTeX</div>
-      <div class="skill-box">HFSS / ANSYS</div>
+    <div class="skill-group">
+      <h3>HDL / RTL</h3>
+      <div class="skills-grid">
+        <div class="skill-box">Verilog HDL</div>
+        <div class="skill-box">SystemVerilog</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="skills-grid">
+        <div class="skill-box">C++</div>
+        <div class="skill-box">Python</div>
+        <div class="skill-box">MATLAB</div>
+        <div class="skill-box">Embedded C</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>EDA &amp; Simulation</h3>
+      <div class="skills-grid">
+        <div class="skill-box">LTspice</div>
+        <div class="skill-box">Cadence Xcelium</div>
+        <div class="skill-box">Cadence Virtuoso</div>
+        <div class="skill-box">KiCad</div>
+        <div class="skill-box">HFSS</div>
+        <div class="skill-box">EDA Playground</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Tools</h3>
+      <div class="skills-grid">
+        <div class="skill-box">OpenLane</div>
+        <div class="skill-box">SKY130 PDK</div>
+        <div class="skill-box">Git &amp; GitHub</div>
+        <div class="skill-box">LaTeX</div>
+        <div class="skill-box">Arduino IDE</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Coursework</h3>
+      <div class="skills-grid">
+        <div class="skill-box">Digital Logic Design</div>
+        <div class="skill-box">Static Timing Analysis</div>
+        <div class="skill-box">Computer Architecture</div>
+        <div class="skill-box">VLSI Technology</div>
+        <div class="skill-box">Memory Organisation</div>
+        <div class="skill-box">Microprocessor (8085)</div>
+        <div class="skill-box">Signals &amp; Systems</div>
+        <div class="skill-box">DSP</div>
+      </div>
     </div>
   </section>
 
@@ -56,36 +94,66 @@
     <div class="card">
       <img src="linkedln.png" alt="LinkedIn" />
       <h2>LinkedIn</h2>
-      <p>Explore my professional profile and journey in core ECE.</p>
-      <a href="https://www.linkedin.com/in/anushka-jharimunya-a8aa5b235/" target="_blank">Visit LinkedIn</a>
+      <p>Explore my professional profile and journey.</p>
+      <a href="https://www.linkedin.com/in/anushka-jharimunya-a8aa5b235/" target="_blank" rel="noopener">Visit LinkedIn</a>
     </div>
     <div class="card">
       <img src="github.webp" alt="GitHub" />
       <h2>GitHub</h2>
-      <p>Browse my hardware-related projects and code repositories.</p>
-      <a href="#" target="_blank">Visit GitHub</a>
+      <p>Browse my RTL, hardware and simulation projects.</p>
+      <a href="https://github.com/AnushkaJ12" target="_blank" rel="noopener">Visit GitHub</a>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="section fade-in">
     <h2>Projects</h2>
+
+    <h3 class="project-category">Hardware &amp; VLSI</h3>
     <div class="project-card">
-      <h3>Lost & Found Registry</h3>
-      <p>Designed a full-stack web application to manage lost and found items on campus using HTML, CSS, JS, and MongoDB. Integrated form validation and database storage for smooth item tracking.</p>
-      <a href="https://lost-and-found-alpha.vercel.app/" target="_blank">View Project</a>
+      <h3>32-bit RISC-V Pipelined Processor</h3>
+      <p class="tech">Verilog · Icarus Verilog · GTKWave</p>
+      <p>Designed an RV32I processor with a five-stage pipeline (IF, ID, EX, MEM, WB). Handled data hazards with forwarding, inserted stalls for load-use hazards and flushed wrong-path instructions after taken branches. Verified with directed tests, waveforms and a self-checking SystemVerilog testbench (18/18 checks pass).</p>
     </div>
     <div class="project-card">
-      <h3>Cafe Website</h3>
-      <p>Created a responsive UI for a cafe using HTML, CSS, and JavaScript. Featured interactive menu, contact form, and adaptive mobile layout.</p>
+      <h3>Adaptive LIF Neuron with MOSFET-Memristor Leak <span class="badge">ongoing</span></h3>
+      <p class="tech">LTspice · 180nm CMOS</p>
+      <p>Designed a four-transistor MOSFET-based memristor emulator and verified its I-V hysteresis. Used it as the leak element in a leaky integrate-and-fire neuron and compared spike-frequency adaptation against a fixed-resistor design. Simulating a memristive STDP synapse for a neuromorphic hearing-aid application.</p>
     </div>
     <div class="project-card">
-      <h3>Portfolio Website</h3>
-      <p>This portfolio website is a responsive, animated showcase of my work, experience, and contact information, styled with CSS and JavaScript interactivity.</p>
+      <h3>Asynchronous FIFO</h3>
+      <p class="tech">Verilog HDL · OpenLane · KLayout</p>
+      <p>Designed a dual-clock FIFO using Gray-coded pointers and two-flop synchronizers to avoid metastability across clock domains, and tested full and empty conditions. Ran the RTL-to-GDSII flow in OpenLane (synthesis, placement, CTS, routing) and inspected the layout in KLayout.</p>
+    </div>
+    <div class="project-card">
+      <h3>FSM-based Vending Machine</h3>
+      <p class="tech">Verilog HDL · EDA Playground</p>
+      <p>Designed a finite state machine that accepts ₹0, ₹5 and ₹10 coins, dispenses products and returns change. Tested state transitions, dispensing and change return with directed and random testbench inputs.</p>
+    </div>
+
+    <h3 class="project-category">Research</h3>
+    <div class="project-card">
+      <h3>CoS-MoE: Cost-aware GPU–PNM Expert Scheduling</h3>
+      <p class="tech">C++ · Python · IIIT Delhi · VLSID 2027 poster</p>
+      <p>Ran the experimental evaluation of four scheduling policies on DeepSeek-V3/V2 and GLaM-143B, and produced the correlation analysis that motivates the predictor design. Grew out of ProPIM, a Logic-PIM offload redesign for Duplex's GPU–Logic-PIM MoE inference (~9–10% latency reduction on Mixtral 8×7B).</p>
+    </div>
+    <div class="project-card">
+      <h3>AttAcc Reproduction and Extension</h3>
+      <p class="tech">Ramulator · PIM · LLM inference</p>
+      <p>Reproduced AttAcc (ASPLOS 2024), a PIM-based transformer inference accelerator, and extended the modified Ramulator simulator with LLaMA 3.1-8B support, an H100 GPU configuration and a queuing model.</p>
+    </div>
+
+    <h3 class="project-category">Software &amp; IoT</h3>
+    <div class="project-card">
+      <h3>Lost &amp; Found Registry</h3>
+      <p class="tech">HTML · CSS · JavaScript · MongoDB</p>
+      <p>Full-stack web app for managing lost and found items on campus, with form validation and database storage for item tracking.</p>
+      <a href="https://lost-and-found-alpha.vercel.app/" target="_blank" rel="noopener">View Project</a>
     </div>
     <div class="project-card">
       <h3>IoT Laser Tripwire System</h3>
-      <p>Developed a laser-based tripwire system using ESP32 and RTC to detect unauthorized intrusions and log timestamps for event monitoring.</p>
+      <p class="tech">ESP32 · RTC</p>
+      <p>Laser-based tripwire that detects unauthorized intrusions and logs timestamps for event monitoring.</p>
     </div>
   </section>
 
@@ -93,11 +161,18 @@
   <section id="experience" class="section fade-in">
     <h2>Experience</h2>
     <ul>
-      <li><strong>IIT Guwahati</strong> – Research Intern (May–July 2025)<br />
-        Working on 5G private networks and integrated sensing and communication (ISAC) technologies using MATLAB simulations and intelligent reflecting surfaces (IRS).</li>
+      <li><strong>AMS Lab, IIIT Delhi</strong> – Research Intern, under Prof. Sujay Deb (May–July 2026)<br />
+        Reproduced and extended AttAcc on a modified Ramulator simulator, prototyped ProPIM, and ran the evaluation for CoS-MoE, a cost-aware GPU–PNM expert scheduling framework. Co-authored a poster paper accepted at VLSID 2027.</li>
+      <li><strong>IIT Guwahati</strong> – R&amp;D Intern, under Prof. Salil Kashyap (May–July 2025)<br />
+        Built a real-time human/animal detection pipeline (YOLOv5/v8) on a live 5G camera feed using FFmpeg, OpenCV and a React dashboard. Simulated IRS vs. Decode-and-Forward relays and explored ML-based beamforming for 6G ISAC in MATLAB/Python.</li>
       <li><strong>Devcomm, NSUT</strong> – Member since Sep 2023</li>
       <li><strong>Canvas, NSUT</strong> – Fine Arts Society Member since Nov 2023</li>
       <li>Event Coordinator – Moksha’23 and Resonanz’24 (Sponsorship and Fine Arts teams)</li>
+    </ul>
+
+    <h2 class="sub-heading">Education</h2>
+    <ul>
+      <li><strong>Netaji Subhas University of Technology, Delhi</strong> – B.Tech, Electronics and Communication Engineering (expected 2027), CGPA 7.98 till Sem VI</li>
     </ul>
   </section>
 
@@ -105,17 +180,14 @@
   <section id="contact" class="contact-container fade-in">
     <img src="passport1.jpg" alt="Profile" class="profile-image" />
     <div>
-      <p><mark>Email:</mark> anushkajharimunya@gmail.com</p>
+      <p><mark>Email:</mark> <a href="mailto:anushkajharimunya@gmail.com">anushkajharimunya@gmail.com</a></p>
       <p><mark>Phone:</mark> +91 7428566692</p>
     </div>
   </section>
 
   <!-- Scroll to Top Button -->
-  <button id="scrollTopBtn">⬆️</button>
+  <button id="scrollTopBtn" aria-label="Scroll to top">⬆️</button>
 
   <script src="portfolio.js"></script>
 </body>
 </html>
-
-
-
